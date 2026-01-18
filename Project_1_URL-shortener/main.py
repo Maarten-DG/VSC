@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
+import random
+import string
 
 # 1. Database initialisatie
 def init_db():
@@ -20,29 +22,30 @@ app = Flask(__name__)
 # 2. Home route: Formulieren verwerken en opslaan
 @app.route("/")
 def home():
-    alias = request.args.get('alias')
     url = request.args.get('url')
     errors = []
+    generated_alias = None # Om later te tonen in de template
 
-    if alias is not None or url is not None:
-        if not alias:
-            errors.append('De alias mag niet leeg zijn')
+    if url is not None: # Er is op 'opslaan' gedrukt
         if not url:
             errors.append("De url mag niet leeg zijn.")
-
+        
         if not errors:
+            # Genereer een alias van 15 kleine letters
+            generated_alias = ''.join(random.choices(string.ascii_lowercase, k=15))
+            
+            # Voeg 'https://' toe als het ontbreekt (voorkomt de fout van net!)
+            if not url.startswith(('http://', 'https://')):
+                url = 'https://' + url
+
+            # Opslaan in database
             with sqlite3.connect('shortener.db') as conn:
                 cursor = conn.cursor()
-                # Check op dubbele alias
-                cursor.execute("SELECT * FROM mappings WHERE alias = ?", (alias,))
-                if cursor.fetchone():
-                    errors.append("Deze alias is al in gebruik.")
-                else:
-                    # Opslaan
-                    cursor.execute("INSERT INTO mappings (alias, url) VALUES (?, ?)", (alias, url))
-                    conn.commit()
-                    return render_template("succes.html", alias=alias, url=url)
-        
+                cursor.execute("INSERT INTO mappings (alias, url) VALUES (?, ?)", (generated_alias, url))
+                conn.commit()
+            
+            return render_template("succes.html", alias=generated_alias, url=url)
+
     return render_template("home.html", fouten=errors)
 
 # 3. Redirect route: De kern van Stap 4
