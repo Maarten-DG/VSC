@@ -1,0 +1,12 @@
+[2026-01-18 21:55:59,513] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-01-18 21:55:59,513] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2026-01-18 21:55:59,516] INFO in _internal:  * Restarting with stat
+[2026-01-18 21:55:59,801] WARNING in _internal:  * Debugger is active!
+[2026-01-18 21:55:59,803] INFO in _internal:  * Debugger PIN: 128-719-649
+[2026-01-18 21:56:16,440] DEBUG in main: Bezoek aan homepagina via pad: /
+[2026-01-18 21:56:16,440] INFO in _internal: 127.0.0.1 - - [18/Jan/2026 21:56:16] "GET / HTTP/1.1" 200 -
+[2026-01-18 21:56:16,586] INFO in _internal: 127.0.0.1 - - [18/Jan/2026 21:56:16] "GET /static/css/style.css HTTP/1.1" 200 -
+[2026-01-18 21:56:16,591] INFO in _internal: 127.0.0.1 - - [18/Jan/2026 21:56:16] "[33mGET /static/images/banner.png HTTP/1.1[0m" 404 -
+[2026-01-18 21:56:18,393] DEBUG in main: Bezoek aan homepagina via pad: /
+[2026-01-18 21:56:18,404] INFO in _internal: 127.0.0.1 - - [18/Jan/2026 21:56:18] "GET /?url=fsqdsd HTTP/1.1" 200 -

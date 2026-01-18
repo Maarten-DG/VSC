@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, abort
 import sqlite3
 import random
 import string
+import logging
 
 # 1. Database initialisatie
 def init_db():
@@ -17,11 +18,21 @@ def init_db():
 
 init_db()
 
+# Configureren van de logger met het gewenste formaat en tijdstip
+logging.basicConfig(
+    filename='shortener.log',
+    level=logging.DEBUG,
+    format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
+    encoding='UTF-8'
+)
+
 app = Flask(__name__)
 
 # 2. Home route: Formulieren verwerken en opslaan
 @app.route("/")
 def home():
+    app.logger.debug(f"Bezoek aan homepagina via pad: {request.path}")
+
     url = request.args.get('url')
     errors = []
     generated_alias = None # Om later te tonen in de template
@@ -51,6 +62,8 @@ def home():
 # 3. Redirect route: De kern van Stap 4
 @app.route("/shorturl/<alias>")
 def toon_mapping(alias):
+    app.logger.debug(f"ShortURL opgevraagd voor alias: '{alias}'")
+
     with sqlite3.connect('shortener.db') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT url FROM mappings WHERE alias = ?", (alias,))
@@ -61,9 +74,10 @@ def toon_mapping(alias):
         # Check of de URL begint met http. Zo niet, maak hem absoluut.
         if not url.startswith(('http://', 'https://')):
             url = 'https://' + url
-        
+        app.logger.debug(f"Redirecting naar: {resultaat[0]}")
         return redirect(url)
     else:
+        app.logger.warning(f"Alias '{alias}' niet gevonden in database!")
         abort(404)
     
 app.errorhandler(404)
