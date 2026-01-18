@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mijn Citaat Pagina</title>
+</head>
+<!DOCTYPE html>
+<html>
+<body>
+    {% if fouten %}
+    <ul style="color: red;">
+        {% for fout in fouten %}
+            <li>{{ fout }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>Vul je naam in</h2>
+    <form action="/" method="GET">
+        <label>Alias:</label><br>
+        <input type="text" name="alias"><br>
+        
+        <label>URL:</label><br>
+        <input type="text" name="url"><br><br>
+        
+        <input type="submit" value="Verzenden">
+    </form>
+</body>
+</html>
+</html>
