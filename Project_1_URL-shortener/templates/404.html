@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Niet Gevonden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner" class="banner">
+
+    <div class="error-box">
+        <h1>Oeps! Pagina niet gevonden</h1>
+        <p>De alias die je probeert te bezoeken bestaat niet in ons systeem.</p>
+        <a href="/">Terug naar de homepagina</a>
+    </div>
+</body>
+</html>

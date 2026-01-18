@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, abort
 import sqlite3
 import random
 import string
@@ -64,7 +64,11 @@ def toon_mapping(alias):
         
         return redirect(url)
     else:
-        return "Alias bestaat niet", 404
+        abort(404)
+    
+app.errorhandler(404)
+def page_not_found(alias):
+    return render_template('404.html'), 404
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,24 +2,25 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Mijn Citaat Pagina</title>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<!DOCTYPE html>
-<html>
 <body>
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner" class="banner">
+
+    <h1>Kort je URL in</h1>
+
     {% if fouten %}
-    <ul style="color: red;">
+    <ul class="error-list">
         {% for fout in fouten %}
             <li>{{ fout }}</li>
         {% endfor %}
     </ul>
     {% endif %}
 
-    <h2>Vul je naam in</h2>
     <form action="/" method="GET">
-    <label>Geef de URL die je wilt inkorten:</label><br>
-    <input type="text" name="url" placeholder="bijv. google.com"><br><br>
-    <button type="submit">Genereer Short URL</button>
-</form>
-</html>
+        <input type="text" name="url" placeholder="Plak hier je lange URL...">
+        <button type="submit">Genereer Link</button>
+    </form>
+</body>
 </html>
