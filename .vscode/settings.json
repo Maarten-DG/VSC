@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+        "**/.venv": true
+    },
+    "explorer.fileNesting.enabled": false,
+    "outline.collapseItems": "alwaysCollapse"
+}
