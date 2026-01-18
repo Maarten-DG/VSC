@@ -1,0 +1,44 @@
+2026-01-18 21:47:50,236 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-18 21:47:50,236 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-18 21:47:50,239 - INFO -  * Restarting with stat
+2026-01-18 21:47:50,536 - WARNING -  * Debugger is active!
+2026-01-18 21:47:50,538 - INFO -  * Debugger PIN: 128-719-649
+2026-01-18 21:48:16,203 - INFO - De homepagina is bezocht.
+2026-01-18 21:48:16,203 - ERROR - pagecontents.txt kon niet worden gevonden!
+2026-01-18 21:48:16,229 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:16] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2026-01-18 21:48:16,352 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:16] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2026-01-18 21:48:16,353 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:16] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2026-01-18 21:48:16,370 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:16] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=pFgnmpaKiVHTeA66tkfN HTTP/1.1" 200 -
+2026-01-18 21:48:16,377 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2026-01-18 21:48:54,258 - INFO -  * Detected change in 'C:\\Users\\ADG\\OneDrive\\2. AP\\S3- Python Advanced\\S3-PythonAdvanced-VSC\\Oefeningen\\P1-URL-shortener\\Flask_logger\\logging_experiment.py', reloading
+2026-01-18 21:48:54,285 - INFO -  * Restarting with stat
+2026-01-18 21:48:54,619 - WARNING -  * Debugger is active!
+2026-01-18 21:48:54,621 - INFO -  * Debugger PIN: 128-719-649
+2026-01-18 21:48:56,278 - INFO - De homepagina is bezocht.
+2026-01-18 21:48:56,302 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:56] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2026-01-18 21:48:56,404 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:56] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-01-18 21:48:56,404 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:56] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-01-18 21:48:56,419 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:56] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=nKClNcrtI6eHUy2UTHQg HTTP/1.1" 200 -
+2026-01-18 21:48:56,424 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:56] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2026-01-18 21:48:58,173 - INFO - De homepagina is bezocht.
+2026-01-18 21:48:58,191 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2026-01-18 21:48:58,222 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:58] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-01-18 21:48:58,223 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:58] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-01-18 21:48:58,244 - INFO - 127.0.0.1 - - [18/Jan/2026 21:48:58] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=nKClNcrtI6eHUy2UTHQg HTTP/1.1[0m" 304 -
+2026-01-18 21:49:02,790 - INFO - De homepagina is bezocht.
+2026-01-18 21:49:02,808 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:02] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2026-01-18 21:49:02,841 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:02] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-01-18 21:49:02,841 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:02] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-01-18 21:49:02,865 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:02] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=nKClNcrtI6eHUy2UTHQg HTTP/1.1[0m" 304 -
+2026-01-18 21:49:09,203 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-18 21:49:09,203 - INFO - [33mPress CTRL+C to quit[0m
+2026-01-18 21:49:09,239 - INFO -  * Restarting with stat
+2026-01-18 21:49:09,528 - WARNING -  * Debugger is active!
+2026-01-18 21:49:09,530 - INFO -  * Debugger PIN: 128-719-649
+2026-01-18 21:49:11,586 - INFO - De homepagina is bezocht.
+2026-01-18 21:49:11,616 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:11] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2026-01-18 21:49:11,729 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:11] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-01-18 21:49:11,729 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:11] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-01-18 21:49:11,748 - INFO - 127.0.0.1 - - [18/Jan/2026 21:49:11] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=zWlqPAyxalXLovoWOOnB HTTP/1.1" 200 -
