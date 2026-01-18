@@ -1,12 +1,23 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
+
+import sqlite3
+
+def init_db():
+    with sqlite3.connect('shortener.db') as conn:
+        cursor = conn.cursor()
+        # Maak de tabel aan als deze nog niet bestaat
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS mappings (
+                alias TEXT PRIMARY KEY,
+                url TEXT NOT NULL
+            )
+        """)
+        conn.commit()
+
+# Roep de functie aan
+init_db()
 
 app = Flask(__name__)
-
-url_mapping = {
-    "ap": "https://www.ap.be",
-    "google": "https://www.google.com",
-    "canvas": "https://ap.instructure.com"
-}
 
 @app.route("/")
 def home():
@@ -25,7 +36,20 @@ def home():
 
         # Als er geen fouten zijn: opslaan in dict
         if not errors:
-            url_mapping[alias] = url
+            # In plaats van: url_mapping[alias] = url
+            # Nadat je checkt of de velden leeg zijn:
+            with sqlite3.connect('shortener.db') as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT * FROM mappings WHERE alias = ?", (alias,))
+                bestaande_alias = cursor.fetchone()
+
+                if bestaande_alias:
+                    errors.append("Deze alias is al in gebruik. Kies een andere!")
+
+            # Voer de INSERT pas uit als 'errors' nog steeds leeg is
+            if not errors:
+                cursor.execute("INSERT INTO mappings (alias, url) VALUES (?, ?)", (alias, url))
+                conn.commit()
             return render_template("succes.html", alias=alias, url=url)
         
     # Als er fouten zijn (of eerste bezoek), toon formulier met eventuele fouten
@@ -33,14 +57,21 @@ def home():
 
 @app.route("/shorturl/<alias>")
 def toon_mapping(alias):
-    # 'alias' bevat nu wat de gebruiker in de URL typte
-    # Bijvoorbeeld: als de URL 'localhost:5000/shorturl/ap' is, dan is alias == "ap"
+    # 1. Verbinding maken met de database
+    with sqlite3.connect('shortener.db') as conn:
+        cursor = conn.cursor()
+        
+        # 2. Zoek de URL die bij deze alias hoort
+        cursor.execute("SELECT url FROM mappings WHERE alias = ?", (alias,))
+        resultaat = cursor.fetchone() # Haalt de eerste (en enige) rij op
     
-    # Check of de alias in onze dictionary staat
-    if alias in url_mapping:
-        return url_mapping[alias]
+    # 3. Controleren of er iets gevonden is
+    if resultaat:
+        # resultaat is een tuple, bijv: ('https://www.ap.be',)
+        # We hebben het eerste element nodig: resultaat[0]
+        return redirect(resultaat[0])
     else:
-        return "Alias bestaat niet"
+        return "Alias bestaat niet", 404
     
 if __name__ == "__main__":
     app.run(debug=True)
